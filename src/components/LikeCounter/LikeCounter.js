@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "./styles.css";
+import "./LikeCounter.scss";
 
 export default function LikeCounter() {
   const [count, setCount] = useState(0);
@@ -15,15 +15,18 @@ export default function LikeCounter() {
   const increaseCount = () => {
     return setCount(count + 1);
   };
-  //   const decreaseCount = () => {
-  //     return setCount(count - 1);
-  //   };
+
+  const decreaseCount = () => {
+    if (count > 0) {
+      return setCount(count - 1);
+    }
+  };
 
   return (
-    <div className="App">
-      <h1> Likes {count} </h1>
+    <div className="Likes">
+      <h3> Likes {count} </h3>
       <button onClick={increaseCount}>👍</button>
-      {/* <button onClick={decreaseCount}>👎</button> */}
+      <button onClick={decreaseCount}>👎</button>
     </div>
   );
 }

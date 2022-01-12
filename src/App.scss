@@ -1,7 +1,46 @@
-// .media {
-//   display: none;
-// }
+.App {
+  //   border: 1px solid black;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  background-color: lightgray;
 
-// .media-active {
-//   display: block;
-// }
+  &_header {
+    margin-top: 0;
+  }
+
+  &_card {
+    width: 90%;
+    margin: 0 auto;
+    // padding: 1rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  &_container {
+    padding: 0 1rem;
+  }
+
+  &_img,
+  &_vid {
+    display: block;
+    height: 20rem;
+    width: 100%;
+  }
+
+  &_explanation {
+    font-weight: 200;
+    line-height: 20px;
+    line-break: auto;
+  }
+
+  &_para {
+    color: darkslategray;
+  }
+}
