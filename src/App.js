@@ -3,33 +3,24 @@ import React from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
 import LikeCounter from "./components/LikeCounter/LikeCounter";
+import Spinner from "./components/Spinner/Spinner";
+// import Loader from "react-loader-spinner";
 
 const API_KEY = "Kg4uBwIhiuvJMoYjAa9wjpm5no0tGejhqZUVfhqh";
 
 class App extends React.Component {
-  state = {
-    data: [],
-    // loading: false,
-  };
-  // constructor() {
-  //   super();
-  //   this.state = JSON.parse(window.localStorage.getItem("state")) || {
-  //     count: 0,
-  //     data: [],
-  //   };
-  // }
-
-  // setState(state) {
-  //   window.localStorage.setItem("state", JSON.stringify(state));
-  //   super.setState(state);
-  // }
-
-  // increaseCount = () => {
-  //   return this.setState({ ...this.state, count: this.state.count + 1 });
+  // state = {
+  //   data: [],
+  //   loading: true,
   // };
-  // decreaseCount = () => {
-  //   return this.setState({ ...this.state, count: this.state.count - 1 });
-  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      data: [],
+    };
+  }
 
   // componentDidMount() {
   //   axios.get(`https://epic.gsfc.nasa.gov/api/natural`).then((response) => {
@@ -60,31 +51,16 @@ class App extends React.Component {
         console.log("Data: ", response);
         this.setState({
           data: response.data,
+          loading: false,
         });
       });
   }
-
-  // incrementMe = () => {
-  //   let newCount = this.state.count + 1;
-  //   this.setState({
-  //     count: newCount,
-  //   });
-  // };
 
   render() {
     console.log(this.state);
     console.log(this.state.data);
 
-    if (this.state.data === null) {
-      return <p>Loading...</p>;
-    }
-
-    // const { loading } = this.state;
-
-    // if (loading) {
-    //   // if your component doesn't have to wait for an async action, remove this block
-    //   return <p>Loading...</p>; // render null when app is not ready
-    // }
+    if (this.state.loading) return <Spinner />;
 
     return (
       <div className="App">
@@ -113,30 +89,8 @@ class App extends React.Component {
               {this.state.data.title} - {this.state.data.date}
             </h2>
             <p className="App_explanation">{this.state.data.explanation}</p>
-            <LikeCounter
-              style={{
-                backgroundColor: "white",
-              }}
-            />
+            <LikeCounter />
           </article>
-          {/* <h1> Count {this.state.count} </h1>
-        <button onClick={this.increaseCount}>+</button>
-        <button onClick={this.decreaseCount}>-</button> */}
-          {/* <button onClick={this.incrementMe}>Likes: {this.state.count}</button> */}
-          {/* {this.state.data.map((img, index) => {
-          return (
-            <div className="app_container-card" key={index}>
-              <h2>{img.caption}</h2>
-              <p>Brought to you by NASA's image API</p>
-              <img src={img.image} alt="NASA" />
-              <p>{img.date}</p>
-              <button>Like</button>
-            </div>
-          );
-        })} */}
-          {/* <video width="750" height="500" controls poster={this.state.data.url}>
-                <source src={this.state.data.url} type="video/mp4" />
-              </video> */}
         </section>
       </div>
     );
