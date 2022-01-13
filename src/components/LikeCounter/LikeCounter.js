@@ -24,9 +24,16 @@ export default function LikeCounter() {
 
   return (
     <div className="Likes">
-      <h3> Likes {count} </h3>
-      <button onClick={increaseCount}>👍</button>
-      <button onClick={decreaseCount}>👎</button>
+      <h3 className="Likes_counter">
+        {" "}
+        Likes <span>{count}</span>
+      </h3>
+      <button className="Likes_increment" onClick={increaseCount}>
+        👍
+      </button>
+      <button className="Likes_decrease" onClick={decreaseCount}>
+        👎
+      </button>
     </div>
   );
 }

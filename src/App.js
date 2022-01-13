@@ -38,7 +38,7 @@ class App extends React.Component {
         <section className="App_card">
           <img
             src={this.state.data.url}
-            alt="NASA"
+            alt="NASA telescope shots"
             className="App_img"
             style={{
               display:
@@ -47,6 +47,7 @@ class App extends React.Component {
           />
           <ReactPlayer
             url={this.state.data.url}
+            alt="NASA telescope footage"
             className="App_vid"
             style={{
               display:
