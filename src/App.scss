@@ -6,10 +6,12 @@
     margin-top: 0;
     margin-bottom: 0.5rem;
     padding-top: 1rem;
+    font-family: Arial;
   }
 
   &_para {
     color: darkslategray;
+    font-family: Arial;
   }
 
   &_card {
@@ -25,6 +27,12 @@
 
   &_container {
     padding: 0 1rem 1rem 1rem;
+    background-color: cadetblue;
+  }
+
+  &_titleDate {
+    font-family: Arial;
+    font-style: italic;
   }
 
   &_img,
@@ -39,5 +47,6 @@
     font-weight: 200;
     line-height: 24px;
     line-break: auto;
+    font-family: Arial;
   }
 }
